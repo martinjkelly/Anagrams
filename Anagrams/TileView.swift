@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol TileDragDelegateProtocol {
+    func tileView(tileView: TileView, didDragToPoint: CGPoint)
+}
+
 class TileView: UIImageView {
     
     var letter:Character
-    
     var isMatched: Bool = false
+    var dragDelegate: TileDragDelegateProtocol?
+    
+    private var xOffset: CGFloat = 0.0
+    private var yOffset: CGFloat = 0.0
     
     required init(coder aDecoder: NSCoder) {
         fatalError("use init(letter:, sideLength:")
@@ -35,6 +42,8 @@ class TileView: UIImageView {
         letterLabel.text = String(letter).uppercaseString
         letterLabel.font = UIFont(name: "Verdana-Bold", size: 78.0 * scale)
         self.addSubview(letterLabel)
+        
+        self.userInteractionEnabled = true
     }
     
     func randomize() {
@@ -44,5 +53,25 @@ class TileView: UIImageView {
         
         let yOffset = CGFloat(randomNumber(minX: 0, maxX: 10) - 10)
         self.center = CGPointMake(self.center.x, self.center.y + yOffset)
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let point = touch.locationInView(self.superview)
+            xOffset = point.x - self.center.x
+            yOffset = point.y - self.center.y
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let point = touch.locationInView(self.superview)
+            self.center = CGPointMake(point.x - xOffset, point.y - yOffset)
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.touchesMoved(touches, withEvent: event)
+        dragDelegate?.tileView(self, didDragToPoint: self.center)
     }
 }

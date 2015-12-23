@@ -59,11 +59,71 @@ class GameController
                 let tile = TileView(letter: letter, sideLength: tileSide)
                 tile.center = CGPointMake(offsetX + CGFloat(idx)*(tileSide + TileMargin), ScreenHeight/4*3)
                 tile.randomize()
+                tile.dragDelegate = self
                 
                 gameView.addSubview(tile)
                 tiles.append(tile)
             }
         }
         
+    }
+    
+    func placeTile(tileView: TileView, targetView: TargetView) {
+        
+        targetView.isMatched = true
+        tileView.isMatched = true
+        
+        tileView.userInteractionEnabled = false
+        
+        UIView.animateWithDuration(0.35,
+            delay: 0.00,
+            options: UIViewAnimationOptions.CurveEaseOut,
+            animations: {
+                tileView.center = targetView.center
+                tileView.transform = CGAffineTransformIdentity
+            }, completion: { (value:Bool) in
+                targetView.hidden = true
+        })
+    }
+    
+    func checkForSuccess() {
+        for targetView in targets {
+            if (!targetView.isMatched) {
+                return
+            }
+        }
+        print("Game over")
+    }
+}
+
+extension GameController:TileDragDelegateProtocol {
+    
+    func tileView(tileView: TileView, didDragToPoint point: CGPoint) {
+        var targetView: TargetView?
+        for tv in targets {
+            if tv.frame.contains(point) && !tv.isMatched {
+                targetView = tv
+                break
+            }
+        }
+        
+        if let targetView = targetView {
+            if targetView.letter == tileView.letter {
+                
+                self.placeTile(tileView, targetView: targetView)
+                self.checkForSuccess()
+                
+            } else {
+                
+                tileView.randomize()
+                
+                UIView.animateWithDuration(0.35,
+                    delay: 0.00,
+                    options: UIViewAnimationOptions.CurveEaseOut,
+                    animations: {
+                        tileView.center = CGPointMake(tileView.center.x + CGFloat(randomNumber(minX: 0, maxX: 40)-20), tileView.center.y + CGFloat(randomNumber(minX: 20, maxX: 30)))
+                    }, completion: nil)
+            }
+        }
     }
 }
