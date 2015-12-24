@@ -20,6 +20,7 @@ class TileView: UIImageView {
     
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
+    private var tempTransform: CGAffineTransform = CGAffineTransformIdentity
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("use init(letter:, sideLength:")
@@ -41,7 +42,17 @@ class TileView: UIImageView {
         letterLabel.backgroundColor = UIColor.clearColor()
         letterLabel.text = String(letter).uppercaseString
         letterLabel.font = UIFont(name: "Verdana-Bold", size: 78.0 * scale)
+        
         self.addSubview(letterLabel)
+        
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOpacity = 0
+        self.layer.shadowOffset = CGSizeMake(10.0, 10.0)
+        self.layer.shadowRadius = 15.0
+        self.layer.masksToBounds = false
+        
+        let path = UIBezierPath(rect: self.bounds)
+        self.layer.shadowPath = path.CGPath
         
         self.userInteractionEnabled = true
     }
@@ -61,6 +72,13 @@ class TileView: UIImageView {
             xOffset = point.x - self.center.x
             yOffset = point.y - self.center.y
         }
+        
+        self.layer.shadowOpacity = 0.8
+        
+        tempTransform = self.transform
+        self.transform = CGAffineTransformScale(self.transform, 1.2, 1.2)
+        
+        self.superview?.bringSubviewToFront(self)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -72,6 +90,16 @@ class TileView: UIImageView {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.touchesMoved(touches, withEvent: event)
+        
+        //restore the original transform
+        self.transform = tempTransform
+        
         dragDelegate?.tileView(self, didDragToPoint: self.center)
+        self.layer.shadowOpacity = 0.0
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        self.transform = tempTransform
+        self.layer.shadowOpacity = 0.0
     }
 }

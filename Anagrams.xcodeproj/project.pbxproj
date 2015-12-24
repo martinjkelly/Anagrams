@@ -32,6 +32,7 @@
 		82C889D1198B1A4800F90156 /* credits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82C889D0198B1A4800F90156 /* credits.txt */; };
 		82C889D2198B261700F90156 /* Comic_Andy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C889B1198B19A900F90156 /* Comic_Andy.ttf */; };
 		82C889D3198B261C00F90156 /* wrong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82C889B8198B19CF00F90156 /* wrong.m4a */; };
+		F32648F41C2C620D0073C1CB /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32648F31C2C620D0073C1CB /* AudioController.swift */; };
 		F331702E1C2ACDC50082FBEE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F331702D1C2ACDC50082FBEE /* Level.swift */; };
 		F33170301C2AD2A80082FBEE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F331702F1C2AD2A80082FBEE /* GameController.swift */; };
 		F38ED4D71C2C4056000A6C5C /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38ED4D31C2C4056000A6C5C /* HUDView.swift */; };
@@ -82,6 +83,7 @@
 		82C889CC198B1A2A00F90156 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		82C889CD198B1A2A00F90156 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		82C889D0198B1A4800F90156 /* credits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = credits.txt; sourceTree = "<group>"; };
+		F32648F31C2C620D0073C1CB /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		F331702D1C2ACDC50082FBEE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		F331702F1C2AD2A80082FBEE /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		F38ED4D31C2C4056000A6C5C /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				F331702F1C2AD2A80082FBEE /* GameController.swift */,
+				F32648F31C2C620D0073C1CB /* AudioController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				F331702E1C2ACDC50082FBEE /* Level.swift in Sources */,
 				F38ED4D91C2C4056000A6C5C /* TargetView.swift in Sources */,
 				F38ED4D81C2C4056000A6C5C /* StopwatchView.swift in Sources */,
+				F32648F41C2C620D0073C1CB /* AudioController.swift in Sources */,
 				82C889A3198B13C600F90156 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
