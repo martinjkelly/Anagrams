@@ -35,6 +35,7 @@
 		F32648F41C2C620D0073C1CB /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32648F31C2C620D0073C1CB /* AudioController.swift */; };
 		F331702E1C2ACDC50082FBEE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F331702D1C2ACDC50082FBEE /* Level.swift */; };
 		F33170301C2AD2A80082FBEE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F331702F1C2AD2A80082FBEE /* GameController.swift */; };
+		F3380EB61C2C8C4600BAD751 /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3380EB51C2C8C4600BAD751 /* ExplodeView.swift */; };
 		F38ED4D71C2C4056000A6C5C /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38ED4D31C2C4056000A6C5C /* HUDView.swift */; };
 		F38ED4D81C2C4056000A6C5C /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38ED4D41C2C4056000A6C5C /* StopwatchView.swift */; };
 		F38ED4D91C2C4056000A6C5C /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38ED4D51C2C4056000A6C5C /* TargetView.swift */; };
@@ -86,6 +87,7 @@
 		F32648F31C2C620D0073C1CB /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		F331702D1C2ACDC50082FBEE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		F331702F1C2AD2A80082FBEE /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		F3380EB51C2C8C4600BAD751 /* ExplodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplodeView.swift; sourceTree = "<group>"; };
 		F38ED4D31C2C4056000A6C5C /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		F38ED4D41C2C4056000A6C5C /* StopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		F38ED4D51C2C4056000A6C5C /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				F38ED4D51C2C4056000A6C5C /* TargetView.swift */,
 				F38ED4D61C2C4056000A6C5C /* TileView.swift */,
 				F38ED4DD1C2C4B7A000A6C5C /* CounterLabelView.swift */,
+				F3380EB51C2C8C4600BAD751 /* ExplodeView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3380EB61C2C8C4600BAD751 /* ExplodeView.swift in Sources */,
 				F38ED4D71C2C4056000A6C5C /* HUDView.swift in Sources */,
 				82C88988198B13A700F90156 /* ViewController.swift in Sources */,
 				F33170301C2AD2A80082FBEE /* GameController.swift in Sources */,
