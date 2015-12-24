@@ -12,8 +12,9 @@ import UIKit
 //UI Constants
 let ScreenWidth = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
-
 let TileMargin:CGFloat = 20.0
+let FontHUD = UIFont(name: "comic andy", size: 62.0)!
+let FontHUDBig = UIFont(name: "comic andy", size: 120.0)!
 
 //Random number generator
 func randomNumber(minX minX:UInt32, maxX:UInt32) -> Int {

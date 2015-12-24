@@ -16,9 +16,33 @@ class GameController
     
     private var tiles = [TileView]()
     private var targets = [TargetView]()
+    private var secondsLeft: Int = 0
+    private var timer: NSTimer?
+    private var data = GameData()
     
     init() {
         
+    }
+    
+    func startStopwatch() {
+        secondsLeft = level.timeToSolve
+        hud.stopwatch.setSeconds(secondsLeft)
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "tick", userInfo: nil, repeats: true)
+    }
+    
+    func stopStopwatch() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func tick() {
+        secondsLeft--
+        hud.stopwatch.setSeconds(secondsLeft)
+        
+        if (secondsLeft == 0) {
+            stopStopwatch()
+        }
     }
     
     func dealRandomAnagram() {
@@ -68,6 +92,8 @@ class GameController
             }
         }
         
+        startStopwatch()
+        
     }
     
     func placeTile(tileView: TileView, targetView: TargetView) {
@@ -95,6 +121,7 @@ class GameController
             }
         }
         print("Game over", terminator: "")
+        stopStopwatch()
     }
 }
 
@@ -113,11 +140,18 @@ extension GameController:TileDragDelegateProtocol {
             if targetView.letter == tileView.letter {
                 
                 self.placeTile(tileView, targetView: targetView)
+                
+                data.points += level.pointsPerTile
+                hud.gamePoints.setValue(data.points, duration: 0.5)
+                
                 self.checkForSuccess()
                 
             } else {
                 
                 tileView.randomize()
+                
+                data.points -= level.pointsPerTile/2
+                hud.gamePoints.setValue(data.points, duration: 0.25)
                 
                 UIView.animateWithDuration(0.35,
                     delay: 0.00,

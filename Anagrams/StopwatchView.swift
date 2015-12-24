@@ -3,13 +3,14 @@ import UIKit
 class StopwatchView: UILabel {
     
     //this should never be called
-    required init?(coder aDecoder:NSCoder) {
+    required init(coder aDecoder:NSCoder) {
         fatalError("use init(frame:")
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
+        self.font = FontHUDBig
     }
     
     //helper method that implements time formatting
