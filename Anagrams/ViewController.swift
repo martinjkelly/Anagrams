@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         controller = GameController()
+        
         super.init(coder: aDecoder)
+        let hudView = HUDView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
+        self.view.addSubview(hudView)
+        controller.hud = hudView
     }
     
     override func viewDidLoad() {

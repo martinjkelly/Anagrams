@@ -21,7 +21,7 @@ class TileView: UIImageView {
     private var xOffset: CGFloat = 0.0
     private var yOffset: CGFloat = 0.0
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("use init(letter:, sideLength:")
     }
     

@@ -36,6 +36,8 @@
 		F33170301C2AD2A80082FBEE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F331702F1C2AD2A80082FBEE /* GameController.swift */; };
 		F33170321C2AEB490082FBEE /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33170311C2AEB490082FBEE /* TileView.swift */; };
 		F33170341C2B076C0082FBEE /* TargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33170331C2B076C0082FBEE /* TargetView.swift */; };
+		F3E279DC1C2B75BD008912A5 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E279DB1C2B75BD008912A5 /* StopwatchView.swift */; };
+		F3E279DE1C2B7A9E008912A5 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E279DD1C2B7A9E008912A5 /* HUDView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		F331702F1C2AD2A80082FBEE /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		F33170311C2AEB490082FBEE /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		F33170331C2B076C0082FBEE /* TargetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetView.swift; sourceTree = "<group>"; };
+		F3E279DB1C2B75BD008912A5 /* StopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		F3E279DD1C2B7A9E008912A5 /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,8 @@
 			children = (
 				F33170311C2AEB490082FBEE /* TileView.swift */,
 				F33170331C2B076C0082FBEE /* TargetView.swift */,
+				F3E279DB1C2B75BD008912A5 /* StopwatchView.swift */,
+				F3E279DD1C2B7A9E008912A5 /* HUDView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -307,7 +313,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Caroline;
 				TargetAttributes = {
 					82C8897F198B13A700F90156 = {
@@ -388,6 +394,8 @@
 				F331702E1C2ACDC50082FBEE /* Level.swift in Sources */,
 				F33170321C2AEB490082FBEE /* TileView.swift in Sources */,
 				82C889A3198B13C600F90156 /* Config.swift in Sources */,
+				F3E279DE1C2B7A9E008912A5 /* HUDView.swift in Sources */,
+				F3E279DC1C2B75BD008912A5 /* StopwatchView.swift in Sources */,
 				F33170341C2B076C0082FBEE /* TargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -456,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -492,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -509,6 +518,7 @@
 				INFOPLIST_FILE = Anagrams/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolinebegbie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -525,6 +535,7 @@
 				INFOPLIST_FILE = Anagrams/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolinebegbie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -545,6 +556,7 @@
 				);
 				INFOPLIST_FILE = AnagramsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolinebegbie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -560,6 +572,7 @@
 				);
 				INFOPLIST_FILE = AnagramsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolinebegbie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

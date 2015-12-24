@@ -12,6 +12,8 @@ class GameController
 {
     var gameView: UIView!
     var level: Level!
+    var hud: HUDView!
+    
     private var tiles = [TileView]()
     private var targets = [TargetView]()
     
@@ -92,7 +94,7 @@ class GameController
                 return
             }
         }
-        print("Game over")
+        print("Game over", terminator: "")
     }
 }
 

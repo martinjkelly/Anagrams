@@ -13,7 +13,7 @@ class TargetView: UIImageView {
     var isMatched = false
     
     // this should never be called
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("use init(letter:, sideLength:")
     }
     
